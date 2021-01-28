@@ -11,5 +11,6 @@ class MainActivity : AppCompatActivity() {
         // 세정아 안녕? ㅎㅎㅎ
 
         //와 이거 짱신기해ㅐㅇㅁㅇ
+        //commit message 으디다 작성하는거신가
     }
 }
