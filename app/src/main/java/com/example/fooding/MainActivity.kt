@@ -9,5 +9,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //깃 커밋 테스트 중
         // 세정아 안녕? ㅎㅎㅎ
+
+        //와 이거 짱신기해ㅐㅇㅁㅇ
     }
 }
