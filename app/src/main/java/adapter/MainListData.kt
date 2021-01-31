@@ -3,7 +3,7 @@ package adapter
 import android.widget.ImageView
 
 data class MainListData(
-        val img_foods: ImageView,
+        //val img_foods: ImageView,
 
         val name_stores: String,
         val name_foods: String,
