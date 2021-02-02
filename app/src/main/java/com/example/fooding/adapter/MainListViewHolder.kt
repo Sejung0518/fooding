@@ -1,10 +1,9 @@
-package adapter
+package com.example.fooding.adapter
 
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.example.fooding.R
 
 class MainListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     //View를 저장할 변수

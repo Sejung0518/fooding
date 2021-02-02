@@ -1,4 +1,4 @@
-package adapter
+package com.example.fooding.adapter
 
 import android.widget.ImageView
 

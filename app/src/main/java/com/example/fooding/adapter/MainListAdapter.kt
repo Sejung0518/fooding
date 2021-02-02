@@ -1,9 +1,10 @@
-package adapter
+package com.example.fooding.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fooding.R
 
 class MainListAdapter(private val context: Context) : RecyclerView.Adapter<MainListViewHolder>(){
     //데이터를 저장하는 변수

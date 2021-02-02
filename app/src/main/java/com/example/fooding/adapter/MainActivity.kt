@@ -1,11 +1,9 @@
-package adapter
+package com.example.fooding.adapter
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fooding.R
 
 class MainActivity : AppCompatActivity() {
 
