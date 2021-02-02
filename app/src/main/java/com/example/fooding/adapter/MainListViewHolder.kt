@@ -5,8 +5,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
 
+//View를 저장할 변수(데이터 교체)
 class MainListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-    //View를 저장할 변수
     //val img_foods = itemView.findViewById<ImageView>(R.id.img_foods)
     val name_stores = itemView.findViewById<TextView>(R.id.name_stores)
     val name_foods = itemView.findViewById<TextView>(R.id.name_foods)
