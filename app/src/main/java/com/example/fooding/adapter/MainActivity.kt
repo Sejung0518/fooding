@@ -1,5 +1,6 @@
 package com.example.fooding.adapter
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +48,13 @@ class MainActivity : AppCompatActivity() {
         myAdapter.data = myDatas
         myAdapter.notifyDataSetChanged()
         findViewById<RecyclerView>(R.id.recycler_view).adapter = myAdapter
+
+        /* writeButton click -> WriteItemActivity */
+        writeButton.setOnClickListener(){
+            startActivity(Intent(this, WriteItemActivity::class.java))
+        }
+
+        inner class
     }
 
 }
