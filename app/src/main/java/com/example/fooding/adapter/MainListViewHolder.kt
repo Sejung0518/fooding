@@ -1,5 +1,6 @@
 package com.example.fooding.adapter
 
+import android.content.Context
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -23,5 +24,6 @@ class MainListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         name_foods.text = data.name_foods
         price_foods.text = data.price_foods
         contents_foods.text = data.contents_foods
+
     }
 }

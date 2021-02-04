@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
 
-class MainListAdapter(private val context: Context) : RecyclerView.Adapter<MainListViewHolder>(){
+class MainListAdapter(val context: Context) : RecyclerView.Adapter<MainListViewHolder>(){
     //데이터를 저장하는 변수
    var data = mutableListOf<MainListData>()
 
@@ -24,4 +24,5 @@ class MainListAdapter(private val context: Context) : RecyclerView.Adapter<MainL
     override fun onBindViewHolder(holder: MainListViewHolder, position: Int) {
         holder.onBind(data[position])
     }
+
 }
