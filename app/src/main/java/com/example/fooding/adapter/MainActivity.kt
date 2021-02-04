@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
 
@@ -49,12 +50,16 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        myAdapter = MainListAdapter(this)
-        myAdapter.data = myDatas
+        myAdapter = MainListAdapter(this,myDatas){
+            Toast.makeText(this, "ItemClick:" + it.name_foods, Toast.LENGTH_SHORT).show()
+        }
+        //myAdapter.data = myDatas
         myAdapter.notifyDataSetChanged()
 
         val recycler_view = findViewById<RecyclerView>(R.id.recycler_view)
         recycler_view.adapter = myAdapter
+
+        recycler_view.layoutManager = LinearLayoutManager(this)
 
         /* writeButton click -> WriteItemActivity */
         val writeButton = findViewById<Button>(R.id.writeButton)
