@@ -1,11 +1,15 @@
 package com.example.fooding.adapter
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
@@ -45,12 +49,24 @@ class MainActivity : AppCompatActivity() {
                             "엽기떡볶이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ",
                             "떡볶이ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ",
                             "14000원ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ",
-                            "매워요테ㅔㅔㅔㅔㅔㅔㅔ스트ㅡㅡㅡㅡㅡㅡ중입니다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ호호호ㅗ호"
+                            "매워요"
+                    )
+            )
+
+
+            add(
+                    MainListData(
+                            "BHC?",
+                            "허니콤보",
+                            "14000원?",
+                            "쫀맛!"
                     )
             )
         }
 
+        //item을 클릭했을 때 반응하는 곳
         myAdapter = MainListAdapter(this,myDatas){
+            showPopUp()
             Toast.makeText(this, "ItemClick:" + it.name_foods, Toast.LENGTH_SHORT).show()
         }
         //myAdapter.data = myDatas
@@ -68,5 +84,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    //팝업창 띄우기
+    @SuppressLint("ResourceType")
+    fun showPopUp(){
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.activity_item_show,null)
+
+        val alertDialog = AlertDialog.Builder(this)
+                .setView(findViewById(R.layout.activity_item_show))
+                .create()
+        alertDialog.setView(view)
+        alertDialog.show()
     }
 }
