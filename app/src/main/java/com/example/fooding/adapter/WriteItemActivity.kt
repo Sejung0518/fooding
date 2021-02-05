@@ -4,32 +4,30 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.fooding.R
 import java.util.jar.Manifest
 
 class WriteItemActivity: AppCompatActivity() {
+    val get_gallery_image: Int = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_write)
 
-        var imageView = findViewById<ImageView>(R.id.img_foods)
-        imageView.setOnClickListener(){
-
+        val imageView = findViewById<ImageView>(R.id.img_foods)
+        imageView!!.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+            startActivityForResult(intent, get_gallery_image)
         }
+
     }
-
-    val gallery = 0
-    private fun selectGalary(){
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-
-        startActivityForResult(Intent.createChooser(intent, "Load Image"), gallery)
 
 /*
         var writePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -37,27 +35,5 @@ class WriteItemActivity: AppCompatActivity() {
 
         if(writePermission == packageManager.PERMISSION_DENIED || readPermission == packageManager.PERMISSION_DENIDED)
 */
-        
-    }
 
-    @Override
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(requestCode == gallery){
-            if(requestCode == RESULT_OK){
-                var dataUri = data?.data
-                try{
-                    var bitmap:Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri)
-                    var img_foods = findViewById<ImageView>(R.id.img_foods)
-                    img_foods.setImageBitmap(bitmap)
-                }catch (e:Exception){
-                    Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
-                }
-            }
-            else{
-                Toast.makeText(this, "something wrong with the request code", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 }
