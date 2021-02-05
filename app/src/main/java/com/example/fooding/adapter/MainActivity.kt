@@ -77,12 +77,7 @@ class MainActivity : AppCompatActivity() {
         recycler_view.adapter = myAdapter
 
         recycler_view.layoutManager = LinearLayoutManager(this)
-
-        // 구분선 넣기
-        val dividerItemDecoration =
-                DividerItemDecoration(recycler_view.context,LinearLayoutManager(this).orientation)
-
-        recycler_view.addItemDecoration(dividerItemDecoration)
+        recycler_view.addItemDecoration(RecyclerDecoration(20))
 
         /* writeButton click -> WriteItemActivity */
         val writeButton = findViewById<Button>(R.id.writeButton)

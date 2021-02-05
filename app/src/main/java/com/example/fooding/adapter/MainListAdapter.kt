@@ -25,6 +25,11 @@ class MainListAdapter(val context: Context, val data:MutableList<MainListData>,v
     //재활용되는 view를 호출하여 실행되는 메소드 - 전달 및 데이터 결합
     override fun onBindViewHolder(holder: MainListViewHolder, position: Int) {
         holder.onBind(data[position],context)
+
+        // 간격 설정
+        val layoutParams = holder.itemView.layoutParams
+        layoutParams.height = 120
+        holder.itemView.requestLayout()
     }
 
     //MainListViewHolder
