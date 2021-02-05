@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
@@ -76,6 +77,12 @@ class MainActivity : AppCompatActivity() {
         recycler_view.adapter = myAdapter
 
         recycler_view.layoutManager = LinearLayoutManager(this)
+
+        // 구분선 넣기
+        val dividerItemDecoration =
+                DividerItemDecoration(recycler_view.context,LinearLayoutManager(this).orientation)
+
+        recycler_view.addItemDecoration(dividerItemDecoration)
 
         /* writeButton click -> WriteItemActivity */
         val writeButton = findViewById<Button>(R.id.writeButton)
