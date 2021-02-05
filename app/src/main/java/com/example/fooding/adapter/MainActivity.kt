@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         /* writeButton click -> WriteItemActivity */
         val writeButton = findViewById<Button>(R.id.writeButton)
-            writeButton.setOnClickListener() {
+        writeButton.setOnClickListener() {
             val intent = Intent(this,WriteItemActivity::class.java)
             startActivity(intent)
         }

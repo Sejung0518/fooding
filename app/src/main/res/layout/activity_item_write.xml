@@ -18,47 +18,57 @@
 
     <!--사용자 갤러리에서 가져온 이미지 넣기-->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="글쓰기"
-        android:textSize="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="match_parent"
+        android:layout_height="66.67dp"
+        android:background="@android:color/holo_orange_light"
+        app:contentInsetStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="18.67dp"
+            android:gravity="center"
+            android:text="글쓰기"
+            android:textSize="20dp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="409dp"
+        android:layout_height="216dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_contents_foods"
         app:layout_constraintEnd_toStartOf="@+id/edit_contents_foods"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
 
         <ImageView
             android:id="@+id/img_foods"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:layout_marginLeft="17.33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/img_foods_icecream" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginStart="204dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginStart="184dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -72,9 +82,9 @@
                 <EditText
                     android:id="@+id/name_stores"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:layout_height="30dp"
                     android:hint="음식점명"
-                    android:textSize="5dp" />
+                    android:textSize="20dp" />
 
                 <EditText
                     android:id="@+id/day"
@@ -90,7 +100,6 @@
                 android:id="@+id/edit_name_foods"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-
                 android:hint="음식 이름"
                 android:textSize="20dp" />
 
@@ -106,22 +115,70 @@
 
     <EditText
         android:id="@+id/edit_contents_foods"
-        android:layout_width="445dp"
-        android:layout_height="530dp"
-        android:layout_marginTop="392dp"
+        android:layout_width="394dp"
+        android:layout_height="413dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="280dp"
         android:layout_marginRight="10dp"
         android:hint="내용"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_bottom"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_orange_light"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <Button
+        android:id="@+id/calendar_btn"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="달력"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/home_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar_bottom"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <!--여기서도 텍스트 입력 칸을 그냥 constraint layout이 아니라
-     linear layout으로 해야 할지 고민이다 고민-->
+    <Button
+        android:id="@+id/home_btn"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="8dp"
+        android:text="홈"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/yumHouse_btn"
+        android:layout_width="67dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="맛집"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_bottom"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/home_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
