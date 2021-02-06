@@ -65,6 +65,16 @@ class MainActivity : AppCompatActivity() {
                             "쫀맛!"
                     )
             )
+
+            add(
+                    MainListData(
+                            "커피디자인하다",
+                            "슈크림라떼",
+                            "5500원",
+                            "JMT!"
+                    )
+            )
+
         }
 
         //item을 클릭했을 때 반응하는 곳
