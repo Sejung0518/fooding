@@ -186,7 +186,7 @@
 
     <!--버튼은 나중에 이미지로 바꾸면 될듯-->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save_btn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="96dp"

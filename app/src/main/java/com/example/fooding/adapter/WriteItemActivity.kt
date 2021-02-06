@@ -1,17 +1,11 @@
 package com.example.fooding.adapter
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
-import android.widget.Toolbar
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.fooding.R
-import java.util.jar.Manifest
 
 class WriteItemActivity: AppCompatActivity() {
     val get_gallery_image: Int = 200
@@ -27,7 +21,14 @@ class WriteItemActivity: AppCompatActivity() {
             startActivityForResult(intent, get_gallery_image)
         }
 
+        // 저장 버튼!!
+        val saveButton = findViewById<Button>(R.id.save_btn)
+        saveButton.setOnClickListener() {
+
+        }
+
     }
+}
 
 /*
         var writePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -35,5 +36,3 @@ class WriteItemActivity: AppCompatActivity() {
 
         if(writePermission == packageManager.PERMISSION_DENIED || readPermission == packageManager.PERMISSION_DENIDED)
 */
-
-}
