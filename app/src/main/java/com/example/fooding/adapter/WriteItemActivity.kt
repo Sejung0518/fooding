@@ -20,18 +20,19 @@ class WriteItemActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_write)
 
-        val store_txt = findViewById<EditText>(R.id.edit_name_stores).editableText.toString()
-        val food_txt = findViewById<EditText>(R.id.edit_name_foods).editableText.toString()
-        val price_txt = findViewById<EditText>(R.id.edit_price_foods).editableText.toString()
-        val rank_txt = findViewById<EditText>(R.id.edit_ranking).editableText.toString()
-        val contents_txt = findViewById<EditText>(R.id.edit_contents_foods).editableText.toString()
-
-
        listDB = ListDatabase.getInstance(this)
 
-        /* 새로운 cat 객체를 생성, id 이외의 값을 지정 후 DB에 추가 */
+        /* 새로운 list 객체를 생성, id 이외의 값을 지정 후 DB에 추가 */
         val addRunnable = Runnable {
            try {
+                // 입력 받을 데이터 선언
+               val store_txt = findViewById<EditText>(R.id.edit_name_stores).text.toString()
+               val food_txt = findViewById<EditText>(R.id.edit_name_foods).text.toString()
+               val price_txt = findViewById<EditText>(R.id.edit_price_foods).text.toString()
+               val rank_txt = findViewById<EditText>(R.id.edit_ranking).text.toString()
+               val contents_txt = findViewById<EditText>(R.id.edit_contents_foods).text.toString()
+
+               // 입력 받은 데이터 ListData 추가(=ListDB에 추가하기!)
                val newList = ListData()
                newList.name_stores = store_txt
                newList.name_foods = food_txt
@@ -39,6 +40,7 @@ class WriteItemActivity: AppCompatActivity() {
                newList.rank_foods = rank_txt
                newList.contents_foods = contents_txt
                listDB?.listDao()?.insert(newList)
+
            } catch (e:Exception){
                Log.d("tag","Error- $e")
            }
