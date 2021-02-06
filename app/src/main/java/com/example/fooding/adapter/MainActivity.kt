@@ -3,19 +3,16 @@ package com.example.fooding.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
+import com.example.fooding.data.MainListData
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +31,7 @@ class MainActivity : AppCompatActivity() {
                             "스타벅스",
                             "아이스아메리카노",
                             "5000원",
+                            "2점!",
                             "비싸요 ㅠㅠ"
                     )
             )
@@ -43,7 +41,8 @@ class MainActivity : AppCompatActivity() {
                             "맘스터치",
                             "싸이버거",
                             "5500원",
-                            "맛있어요"
+                            "4.5",
+                            "맛나요"
                     )
             )
 
@@ -52,28 +51,11 @@ class MainActivity : AppCompatActivity() {
                             "엽기떡볶이ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ",
                             "떡볶이ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ",
                             "14000원ㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓㅓ",
+                            "4점",
                             "매워요"
                     )
             )
 
-
-            add(
-                    MainListData(
-                            "BHC?",
-                            "허니콤보",
-                            "14000원?",
-                            "쫀맛!"
-                    )
-            )
-
-            add(
-                    MainListData(
-                            "커피디자인하다",
-                            "슈크림라떼",
-                            "5500원",
-                            "JMT!"
-                    )
-            )
 
         }
 

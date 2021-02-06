@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooding.R
+import com.example.fooding.data.MainListData
 
-class MainListAdapter(val context: Context, val data:MutableList<MainListData>,val itemClick:(MainListData)->Unit) : RecyclerView.Adapter<MainListAdapter.MainListViewHolder>(){
+class MainListAdapter(val context: Context, val data:MutableList<MainListData>, val itemClick:(MainListData)->Unit) : RecyclerView.Adapter<MainListAdapter.MainListViewHolder>(){
     //데이터를 저장하는 변수
    //var data = mutableListOf<MainListData>()
 
