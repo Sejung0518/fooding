@@ -84,7 +84,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/name_stores"
+                    android:id="@+id/edit_name_stores"
                     android:layout_width="113dp"
                     android:layout_height="match_parent"
                     android:hint="음식점명"
@@ -109,6 +109,14 @@
 
             <EditText
                 android:id="@+id/edit_price_foods"
+                android:layout_width="match_parent"
+                android:layout_height="25.33dp"
+                android:layout_marginTop="2dp"
+                android:hint="가격"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/edit_ranking"
                 android:layout_width="match_parent"
                 android:layout_height="25.33dp"
                 android:layout_marginTop="2dp"
