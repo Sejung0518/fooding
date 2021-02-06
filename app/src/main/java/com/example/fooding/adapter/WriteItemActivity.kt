@@ -2,29 +2,20 @@ package com.example.fooding.adapter
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.ImageDecoder
-import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.RequestOptions
 import com.example.fooding.R
 import com.example.fooding.data.ListData
 import com.example.fooding.data.ListDatabase
-import java.io.File
 import java.lang.Exception
 
 class WriteItemActivity: AppCompatActivity() {
 
     private var listDB: ListDatabase? = null
-    val get_gallery_image: Int = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +71,7 @@ class WriteItemActivity: AppCompatActivity() {
     }
 
     // ImgView에 사진 불러오기
-    var selectedPhotoUri: Uri? = null
+    private var selectedPhotoUri: Uri? = null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
