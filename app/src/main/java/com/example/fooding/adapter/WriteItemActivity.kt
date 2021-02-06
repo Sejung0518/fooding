@@ -1,14 +1,24 @@
 package com.example.fooding.adapter
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.ImageDecoder
+import android.graphics.drawable.Drawable
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.example.fooding.R
 import com.example.fooding.data.ListData
 import com.example.fooding.data.ListDatabase
+import java.io.File
 import java.lang.Exception
 
 class WriteItemActivity: AppCompatActivity() {
@@ -49,9 +59,10 @@ class WriteItemActivity: AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.img_foods)
         imageView!!.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
-            startActivityForResult(intent, get_gallery_image)
+            intent.type = "image/*"
+            startActivityForResult(intent,0)
         }
+
 
         // 저장 버튼!!
         val saveButton = findViewById<Button>(R.id.save_btn)
@@ -64,8 +75,32 @@ class WriteItemActivity: AppCompatActivity() {
             finish()
         }
 
+
+
     }
 
+    // ImgView에 사진 불러오기
+    var selectedPhotoUri: Uri? = null
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
+            // proceed and check what the selected image was...
+
+            selectedPhotoUri = data.data
+
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
+
+            val img = findViewById<ImageView>(R.id.img_foods)
+
+            img.setImageBitmap(bitmap)
+            img.alpha = 1f
+
+        }
+    }
+
+    //삭제버튼(아직 미구현)
     override fun onDestroy() {
         ListDatabase.destroyInstance()
         listDB = null
