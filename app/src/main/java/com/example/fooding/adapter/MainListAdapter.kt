@@ -1,15 +1,18 @@
 package com.example.fooding.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.PixelCopy
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.Dimension.DP
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.toIcon
 import androidx.core.net.toFile
@@ -18,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fooding.R
 import com.example.fooding.data.ListData
+import com.google.android.material.internal.ViewUtils.dpToPx
 import java.net.URL
 
 class MainListAdapter(
@@ -39,13 +43,15 @@ class MainListAdapter(
     }
 
     //재활용되는 view를 호출하여 실행되는 메소드 - 전달 및 데이터 결합
+    @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: MainListViewHolder, position: Int) {
         holder.onBind(data!!.get(position))
 
         // 간격 설정
+        val myHeight = dpToPx(context,200)
         val layoutParams = holder.itemView.layoutParams
-        layoutParams.height = 120
+        layoutParams.height = myHeight.toInt()
         holder.itemView.requestLayout()
     }
 
