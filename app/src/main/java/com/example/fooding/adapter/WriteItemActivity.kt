@@ -31,6 +31,11 @@ class WriteItemActivity : AppCompatActivity() {
             startActivityForResult(intent, 0)
         }
 
+        val edit_ranking = findViewById<RatingBar>(R.id.edit_ranking)
+        edit_ranking.setOnRatingBarChangeListener(){ ratingBar, rating, fromUser ->
+            edit_ranking.rating = rating
+        }
+
 
     }
 
