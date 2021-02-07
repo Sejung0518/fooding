@@ -1,5 +1,7 @@
 package com.example.fooding.data
 
+import android.net.Uri
+import android.widget.ImageView
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -8,6 +10,9 @@ import androidx.room.PrimaryKey
 data class ListData(
     @PrimaryKey(autoGenerate = true)
     var id: Long?,
+
+    @ColumnInfo(name = "img")
+    var img_foods: String?,
 
     @ColumnInfo(name = "store")
     var name_stores: String?,
@@ -24,5 +29,5 @@ data class ListData(
     @ColumnInfo(name = "contents")
     var contents_foods: String?
 ){
-    constructor():this(null,"","","","","")
+    constructor():this(null,null,"","","","","")
 }
