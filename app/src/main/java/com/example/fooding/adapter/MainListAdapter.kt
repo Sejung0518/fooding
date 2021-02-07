@@ -76,7 +76,7 @@ class MainListAdapter(
             name_stores.text = data.name_stores
             name_foods.text = data.name_foods
             price_foods.text = data.price_foods
-            rank_foods.text = data.rank_foods
+            rank_foods.text = data.rank_foods.toString()
             contents_foods.text = data.contents_foods
 
             itemView.setOnClickListener { itemClick(data) }

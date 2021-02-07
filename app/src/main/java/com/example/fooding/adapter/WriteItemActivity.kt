@@ -62,7 +62,7 @@ class WriteItemActivity : AppCompatActivity() {
                 newList.name_stores = store_txt
                 newList.name_foods = food_txt
                 newList.price_foods = price_txt
-                newList.rank_foods = rank_txt
+                newList.rank_foods = rank_txt.toInt()
                 newList.contents_foods = contents_txt
                 listDB?.listDao()?.insert(newList)
 

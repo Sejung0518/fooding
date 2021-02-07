@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".adapter.WriteItemActivity">
 
+
     <!--갤러리 권한-->
     <!--
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -128,21 +129,25 @@
                 android:layout_marginTop="2dp"
                 android:isIndicator="false"
                 android:numStars="5"
-                android:rating="2.5"
+                android:rating="3"
                 android:stepSize="0.5"
-                />
+                android:progressTint="@color/purple_200"/>
+                <!--왜 주황색 설정이 안되지-->
+
         </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
         android:id="@+id/edit_contents_foods"
         android:layout_width="398dp"
         android:layout_height="466dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="48dp"
         android:hint="내용"
         app:layout_constraintBottom_toTopOf="@+id/toolbar_bottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
@@ -213,6 +218,7 @@
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.592" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

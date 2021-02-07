@@ -24,10 +24,10 @@ data class ListData(
     var price_foods: String?,
 
     @ColumnInfo(name = "rank")
-    var rank_foods: String?,
+    var rank_foods: Int?,
 
     @ColumnInfo(name = "contents")
     var contents_foods: String?
 ){
-    constructor():this(null,null,"","","","","")
+    constructor():this(null,null,"","","", rank_foods = null,"")
 }
