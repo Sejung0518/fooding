@@ -16,6 +16,7 @@ import java.lang.Exception
 class WriteItemActivity : AppCompatActivity() {
 
     private var listDB: ListDatabase? = null
+    var homeBtn : Button = findViewById<Button>(R.id.home_btn)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,7 @@ class WriteItemActivity : AppCompatActivity() {
 
         listDB = ListDatabase.getInstance(this)
 
-
+        // 사용자에게 갤러리 이미지 받기
         val imageView = findViewById<ImageView>(R.id.img_foods)
         imageView!!.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
@@ -31,18 +32,36 @@ class WriteItemActivity : AppCompatActivity() {
             startActivityForResult(intent, 0)
         }
 
+        // 사용자에게 랭킹 받기
         val edit_ranking = findViewById<RatingBar>(R.id.edit_ranking)
         edit_ranking.setOnRatingBarChangeListener(){ ratingBar, rating, fromUser ->
             edit_ranking.rating = rating
         }
+
+        // 홈 화면으로 돌아가기 (홈버튼)
+        homeBtn.setOnClickListener{
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
 
     }
 
     // ImgView에 사진 불러오기
     private var selectedPhotoUri: Uri? = null
 
+    // Category 변수 선언
+    private var categoryImgae = findViewById<ImageView>(R.id.edi_category)
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        // Category에 사진 불러오기
+        categoryImgae.setOnClickListener{
+
+        }
 
         /* 새로운 list 객체를 생성, id 이외의 값을 지정 후 DB에 추가 */
         val addRunnable = Runnable {
