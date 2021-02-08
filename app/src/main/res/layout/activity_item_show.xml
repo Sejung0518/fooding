@@ -4,75 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adapter.WriteItemActivity">
+    tools:context=".adapter.ShowItemActivity">
 
-
-
-    <ImageView
-        android:id="@+id/img_foods"
-        android:layout_width="157dp"
-        android:layout_height="492dp"
-        android:layout_marginStart="4dp"
-        android:layout_weight="0"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="392dp"
+        android:layout_height="599dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.016"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="140dp"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="172dp"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/edit_name_stores"
-            android:layout_width="139dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="172dp"
-            android:hint="음식점 이름"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.591"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/edit_name_foods"
-            android:layout_width="139dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="9dp"
-            android:hint="음식 이름"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.591"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_name_stores" />
-
-        <EditText
-            android:id="@+id/edit_price_foods"
-            android:layout_width="139dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="9dp"
-            android:hint="가격"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.591"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_name_foods" />
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/edit_contents_foods"
-        android:layout_width="405dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="496dp"
-        android:hint="내용"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!--여기서도 텍스트 입력 칸을 그냥 constraint layout이 아니라
-     linear layout으로 해야 할지 고민이다 고민-->
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

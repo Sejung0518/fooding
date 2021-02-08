@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fooding.R
 
 
-class ShowItemActivityt: AppCompatActivity() {
+class ShowItemActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
