@@ -59,16 +59,16 @@
 
         <ImageView
             android:id="@+id/img_foods"
-            android:layout_width="162dp"
-            android:layout_height="181dp"
+            android:layout_width="180dp"
+            android:layout_height="191dp"
             android:layout_marginEnd="8dp"
             android:background="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.833"
             tools:srcCompat="@drawable/ic_foods_image" />
 
         <LinearLayout
@@ -131,8 +131,7 @@
                 android:numStars="5"
                 android:rating="3"
                 android:stepSize="0.5"
-                android:progressTint="@color/purple_200"/>
-                <!--왜 주황색 설정이 안되지-->
+                android:progressTint="@android:color/holo_orange_dark"/>
 
         </LinearLayout>
 
@@ -141,8 +140,8 @@
 
     <EditText
         android:id="@+id/edit_contents_foods"
-        android:layout_width="398dp"
-        android:layout_height="466dp"
+        android:layout_width="385dp"
+        android:layout_height="367dp"
         android:layout_marginBottom="48dp"
         android:hint="내용"
         app:layout_constraintBottom_toTopOf="@+id/toolbar_bottom"

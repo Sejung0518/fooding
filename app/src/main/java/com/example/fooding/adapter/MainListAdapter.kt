@@ -11,9 +11,12 @@ import android.view.PixelCopy
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.annotation.Dimension.DP
 import androidx.annotation.RequiresApi
+import androidx.appcompat.view.menu.MenuView
+import androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup
 import androidx.core.graphics.drawable.toIcon
 import androidx.core.net.toFile
 import androidx.core.net.toUri
@@ -63,7 +66,7 @@ class MainListAdapter(
         var name_stores = itemView.findViewById<TextView>(R.id.edit_name_stores)
         var name_foods = itemView.findViewById<TextView>(R.id.name_foods)
         var price_foods = itemView.findViewById<TextView>(R.id.price_foods)
-        var rank_foods = itemView.findViewById<TextView>(R.id.rating_foods)
+        var rank_foods = itemView.findViewById<RatingBar>(R.id.edit_ranking)
         var contents_foods = itemView.findViewById<TextView>(R.id.contents_foods)
 
 
@@ -76,7 +79,7 @@ class MainListAdapter(
             name_stores.text = data.name_stores
             name_foods.text = data.name_foods
             price_foods.text = data.price_foods
-            rank_foods.text = data.rank_foods.toString()
+            rank_foods.rating = data.rank_foods
             contents_foods.text = data.contents_foods
 
             itemView.setOnClickListener { itemClick(data) }

@@ -36,7 +36,6 @@ class WriteItemActivity : AppCompatActivity() {
             edit_ranking.rating = rating
         }
 
-
     }
 
     // ImgView에 사진 불러오기
@@ -53,7 +52,7 @@ class WriteItemActivity : AppCompatActivity() {
                 val store_txt = findViewById<EditText>(R.id.edit_name_stores).text.toString()
                 val food_txt = findViewById<EditText>(R.id.edit_name_foods).text.toString()
                 val price_txt = findViewById<EditText>(R.id.edit_price_foods).text.toString()
-                val rank_txt = findViewById<EditText>(R.id.edit_ranking).text.toString()
+                val rank_txt = findViewById<RatingBar>(R.id.edit_ranking).rating
                 val contents_txt = findViewById<EditText>(R.id.edit_contents_foods).text.toString()
 
                 // 입력 받은 데이터 ListData 추가(=ListDB에 추가하기!)
@@ -62,7 +61,7 @@ class WriteItemActivity : AppCompatActivity() {
                 newList.name_stores = store_txt
                 newList.name_foods = food_txt
                 newList.price_foods = price_txt
-                newList.rank_foods = rank_txt.toInt()
+                newList.rank_foods = rank_txt
                 newList.contents_foods = contents_txt
                 listDB?.listDao()?.insert(newList)
 

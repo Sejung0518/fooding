@@ -19,7 +19,8 @@
             android:layout_width="152dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:background="@drawable/item_view"/>
 
         <LinearLayout
             android:layout_width="257dp"
@@ -92,12 +93,17 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/rating_foods"
+            <RatingBar
+                android:id="@+id/edit_ranking"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="평가"
-                android:textSize="20dp" />
+                android:layout_marginTop="2dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.5"
+                android:rating="3"
+                android:progressTint="@android:color/holo_orange_dark"/>
 
             <TextView
                 android:id="@+id/contents_foods"
