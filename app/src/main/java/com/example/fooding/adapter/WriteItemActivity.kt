@@ -1,12 +1,16 @@
 package com.example.fooding.adapter
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fooding.R
 import com.example.fooding.data.ListData
@@ -16,13 +20,19 @@ import java.lang.Exception
 class WriteItemActivity : AppCompatActivity() {
 
     private var listDB: ListDatabase? = null
-    var homeBtn : Button = findViewById<Button>(R.id.home_btn)
+    // Category 변수 선언
+    private lateinit var categoryImage:ImageView
+    private lateinit var homBtn:Button
+    // ImgView에 사진 불러오기
+    private var selectedPhotoUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_write)
 
+
         listDB = ListDatabase.getInstance(this)
+        val homeBtn = findViewById<Button>(R.id.home_btn)
 
         // 사용자에게 갤러리 이미지 받기
         val imageView = findViewById<ImageView>(R.id.img_foods)
@@ -49,18 +59,15 @@ class WriteItemActivity : AppCompatActivity() {
 
     }
 
-    // ImgView에 사진 불러오기
-    private var selectedPhotoUri: Uri? = null
-
-    // Category 변수 선언
-    private var categoryImgae = findViewById<ImageView>(R.id.edi_category)
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        // Category에 사진 불러오기
-        categoryImgae.setOnClickListener{
+        val categoryImgae = findViewById<ImageView>(R.id.edit_category)
 
+        // Category에 사진 불러오기
+        categoryImgae.setOnClickListener(){
+            //팝업창 띄우기
+            showPopUp()
         }
 
         /* 새로운 list 객체를 생성, id 이외의 값을 지정 후 DB에 추가 */
@@ -120,6 +127,18 @@ class WriteItemActivity : AppCompatActivity() {
         ListDatabase.destroyInstance()
         listDB = null
         super.onDestroy()
+    }
+
+    @SuppressLint("ResourceType")
+    fun showPopUp(){
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.category_popup,null)
+
+        val alertDialog = AlertDialog.Builder(this)
+            .setView(findViewById(R.layout.category_popup))
+            .create()
+        alertDialog.setView(view)
+        alertDialog.show()
     }
 }
 
