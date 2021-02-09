@@ -126,9 +126,10 @@ class WriteItemActivity : AppCompatActivity() {
             val alertDialog = AlertDialog.Builder(this)
                 .setView(findViewById(R.layout.category_popup))
                 .create()
-            alertDialog.setView(view)
+            alertDialog.window?.setBackgroundDrawableResource(R.drawable.category_shape)
             alertDialog.window?.attributes?.width = w
             alertDialog.window?.attributes?.height = h
+            alertDialog.setView(view)
 
             // 카테고리1
             alertDialog.setView(view.findViewById<ImageView>(R.id.cat1).setOnClickListener{
@@ -211,6 +212,10 @@ class WriteItemActivity : AppCompatActivity() {
         listDB = null
         super.onDestroy()
     }
+
+}
+
+private fun Any?.setBackgroundDrawable(categoryShape: Int) {
 
 }
 

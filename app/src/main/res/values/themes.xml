@@ -15,4 +15,5 @@
         <item name="actionBarSize">31dp</item>
         <item name="windowNoTitle">true</item>
     </style>
+
 </resources>
