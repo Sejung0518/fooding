@@ -8,23 +8,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
-import com.bumptech.glide.GenericTransitionOptions.with
+import androidx.room.RoomSQLiteQuery.copyFrom
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Glide.with
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.with
 import com.example.fooding.R
 import com.example.fooding.data.ListData
 import com.example.fooding.data.ListDatabase
-import com.squareup.picasso.Picasso
-import java.lang.Exception
+import com.google.android.material.internal.ViewUtils.dpToPx
 
+
+@Suppress("DEPRECATION")
 class WriteItemActivity : AppCompatActivity() {
 
     private var listDB: ListDatabase? = null
@@ -115,20 +111,27 @@ class WriteItemActivity : AppCompatActivity() {
         // Category에 사진 불러오기
         val categoryImage = findViewById<ImageView>(R.id.edit_category)
         categoryImage.setOnClickListener() {
-            val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val view = inflater.inflate(R.layout.category_popup,null)
 
-            // 팝업 창 크기 조절
-            val dm = application.applicationContext.resources.displayMetrics
-            val w = (dm.widthPixels*0.9).toInt()
-            val h = (dm.widthPixels*0.2).toInt()
 
             val alertDialog = AlertDialog.Builder(this)
                 .setView(findViewById(R.layout.category_popup))
                 .create()
-            alertDialog.window?.setBackgroundDrawableResource(R.drawable.category_shape)
-            alertDialog.window?.attributes?.width = w
-            alertDialog.window?.attributes?.height = h
+
+            // Dialog 배경 없애기
+           alertDialog.window?.setBackgroundDrawableResource(R.drawable.category_shape)
+
+            // Dialog 위치 조정
+            val layoutParams = alertDialog.window?.attributes
+
+            val dpX = dpToPx(this,100).toInt()
+            val dpY = dpToPx(this,-85).toInt()
+
+            layoutParams?.x = dpX
+            layoutParams?.y = dpY
+
+            alertDialog.window?.setGravity(Gravity.CLIP_HORIZONTAL)
             alertDialog.setView(view)
 
             // 카테고리1
