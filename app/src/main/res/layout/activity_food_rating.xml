@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="352dp"
+    android:layout_height="250.67dp"
+    android:layout_marginTop="280dp"
+    android:layout_marginLeft="64dp"
+    android:id="@+id/ll_writeChoice"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="53.33dp"
+        android:text="나의 별점은?"
+        android:textSize="20dp"/>
+    
+    <RatingBar
+        android:id="@+id/edit_ranking_show"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="34.67dp"
+        style="@style/Widget.AppCompat.RatingBar"
+        android:numStars="5"
+        android:rating="3"
+        android:stepSize="0.5"
+        android:isIndicator="false"
+        android:progressTint="@android:color/holo_orange_dark"/>
+
+    <TextView
+        android:id="@+id/my_ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:text="3 / 5"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:textSize="20dp"/>
+
+
+</LinearLayout>
