@@ -49,24 +49,26 @@
         android:id="@+id/constraintLayout"
         android:layout_width="421dp"
         android:layout_height="221dp"
-        android:layout_marginTop="13dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_contents_foods"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title">
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.717">
 
 
         <ImageView
             android:id="@+id/img_foods"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="162dp"
+            android:layout_height="181dp"
+            android:layout_marginEnd="8dp"
             android:background="#FFC107"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.737"
+            app:layout_constraintVertical_bias="1.0"
             tools:srcCompat="@drawable/ic_foods_image" />
 
         <LinearLayout
@@ -89,7 +91,7 @@
 
                 <EditText
                     android:id="@+id/edit_name_stores"
-                    android:layout_width="145dp"
+                    android:layout_width="113dp"
                     android:layout_height="47dp"
                     android:hint="음식점명"
                     android:textSize="10dp" />
@@ -104,30 +106,20 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/edit_name_foods"
                 android:layout_width="match_parent"
-                android:layout_height="92dp"
-                android:orientation="horizontal">
+                android:layout_height="42dp"
+                android:hint="음식 이름"
+                android:textSize="8sp" />
 
-                <LinearLayout
-                    android:layout_width="148dp"
-                    android:layout_height="84dp"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/edit_name_foods"
-                        android:layout_width="146dp"
-                        android:layout_height="42dp"
-                        android:hint="음식 이름"
-                        android:textSize="8sp" />
-
-                    <EditText
-                        android:id="@+id/edit_price_foods"
-                        android:layout_width="146dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:hint="가격"
-                        android:textSize="10dp" />
+            <EditText
+                android:id="@+id/edit_price_foods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:hint="가격"
+                android:textSize="10dp" />
 
                 </LinearLayout>
 
@@ -148,14 +140,25 @@
                 android:layout_marginTop="2dp"
                 android:isIndicator="false"
                 android:numStars="5"
-                android:progressTint="@android:color/holo_orange_dark"
                 android:rating="3"
-                android:stepSize="0.5" />
+                android:stepSize="0.5"
+                android:progressTint="@android:color/holo_orange_dark"/>
 
         </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/edit_contents_foods"
+        android:layout_width="398dp"
+        android:layout_height="466dp"
+        android:layout_marginBottom="48dp"
+        android:hint="내용"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_bottom"
@@ -226,15 +229,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.592" />
 
-    <EditText
-        android:id="@+id/edit_contents_foods"
-        android:layout_width="387dp"
-        android:layout_height="384dp"
-        android:layout_marginBottom="88dp"
-        android:hint="내용"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
