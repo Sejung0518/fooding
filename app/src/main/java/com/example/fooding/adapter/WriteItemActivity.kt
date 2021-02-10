@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -61,7 +62,30 @@ class WriteItemActivity : AppCompatActivity() {
             finish()
         }
 
+        var inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        var showStar = inflater.inflate(R.layout.activity_food_rating, null)
+        showStar.setBackgroundColor(Color.parseColor("#99000000"))
+        var paramll = LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT)
+        addContentView(showStar, paramll)
 
+        val edit_ranking_click = findViewById<RatingBar>(R.id.edit_ranking)
+        edit_ranking_click.setOnClickListener {
+            showStarEdit()
+        }
+
+
+    }
+
+    @SuppressLint("ResourceType")
+    fun showStarEdit(){
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.activity_food_rating,null)
+
+        val alertDialog = AlertDialog.Builder(this)
+            .setView(findViewById(R.layout.activity_food_rating))
+            .create()
+        alertDialog.setView(view)
+        alertDialog.show()
     }
 
     @SuppressLint("ResourceType")
