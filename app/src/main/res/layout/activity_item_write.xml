@@ -133,7 +133,7 @@
                 style="@style/Widget.AppCompat.RatingBar.Indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:isIndicator="false"
+                android:isIndicator="true"
                 android:numStars="5"
                 android:progressTint="@android:color/holo_orange_dark"
                 android:rating="3"
@@ -143,10 +143,11 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <EditText
         android:id="@+id/edit_contents_foods"
-        android:layout_width="398dp"
-        android:layout_height="466dp"
+        android:layout_width="401dp"
+        android:layout_height="340dp"
         android:layout_marginBottom="48dp"
         android:hint="내용"
         app:layout_constraintBottom_toTopOf="@+id/toolbar_bottom"

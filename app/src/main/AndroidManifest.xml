@@ -16,6 +16,7 @@
             </intent-filter>
          </activity>
         <activity android:name=".adapter.WriteItemActivity"></activity>
+        <activity android:name=".adapter.RatingFoodActivity"></activity>
 
       <!--  <provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS"

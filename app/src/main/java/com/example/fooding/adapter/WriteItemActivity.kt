@@ -32,6 +32,7 @@ class WriteItemActivity : AppCompatActivity() {
     // ImgView에 사진 불러오기
     private var selectedPhotoUri: Uri? = null
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_write)
@@ -54,6 +55,19 @@ class WriteItemActivity : AppCompatActivity() {
             edit_ranking.rating = rating
         }
 
+        //raingBar 클릭 시 별점 설정 창 띄우기
+        edit_ranking.setOnTouchListener(View.OnTouchListener { view, event ->
+            var rating = edit_ranking.rating
+            if(event.action == MotionEvent.ACTION_UP){
+                var intent = Intent(applicationContext, RatingFoodActivity::class.java)
+                intent.putExtra("rating", rating)
+                startActivityForResult(intent, 100)
+            }
+            return@OnTouchListener true
+        })
+
+
+
         // 홈 화면으로 돌아가기 (홈버튼)
         homeBtn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -64,9 +78,19 @@ class WriteItemActivity : AppCompatActivity() {
 
     }
 
+
     @SuppressLint("ResourceType")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        //별점 rating 받는 부분
+        if((requestCode == 100) && (resultCode == Activity.RESULT_OK)){
+            if(intent != null){
+                var ratingBarUpdate = intent.getFloatExtra("ratingBarUpdate", 0.0f)
+                var edit_ranking = findViewById<RatingBar>(R.id.edit_ranking)
+                edit_ranking.setRating(ratingBarUpdate)
+            }
+        }
 
         /* 새로운 list 객체를 생성, id 이외의 값을 지정 후 DB에 추가 */
         val addRunnable = Runnable {
