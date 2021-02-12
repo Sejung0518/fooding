@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "10a9d4535f14fd0d2c40055ec845d8eb",
+    "entities": [
+      {
+        "tableName": "DataTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `img` TEXT, `store` TEXT, `food` TEXT, `category` TEXT, `price` TEXT, `rank` REAL NOT NULL, `contents` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "img_foods",
+            "columnName": "img",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name_stores",
+            "columnName": "store",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name_foods",
+            "columnName": "food",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "img_category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "price_foods",
+            "columnName": "price",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rank_foods",
+            "columnName": "rank",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contents_foods",
+            "columnName": "contents",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '10a9d4535f14fd0d2c40055ec845d8eb')"
+    ]
+  }
+}

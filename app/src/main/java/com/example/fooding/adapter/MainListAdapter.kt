@@ -4,29 +4,28 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.AsyncTask
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Build
+import android.util.Base64
 import android.view.LayoutInflater
-import android.view.PixelCopy
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-import androidx.annotation.Dimension.DP
 import androidx.annotation.RequiresApi
 import androidx.appcompat.view.menu.MenuView
-import androidx.constraintlayout.solver.widgets.analyzer.WidgetGroup
-import androidx.core.graphics.drawable.toIcon
-import androidx.core.net.toFile
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fooding.R
 import com.example.fooding.data.ListData
 import com.google.android.material.internal.ViewUtils.dpToPx
-import java.net.URL
+import java.io.ByteArrayOutputStream
 
+@Suppress("CAST_NEVER_SUCCEEDS", "DEPRECATION")
 class MainListAdapter(
     val context: Context,
     val data: List<ListData>?,
@@ -65,19 +64,44 @@ class MainListAdapter(
         var img_foods = itemView.findViewById<ImageView>(R.id.img_foods)
         var name_stores = itemView.findViewById<TextView>(R.id.edit_name_stores)
         var name_foods = itemView.findViewById<TextView>(R.id.name_foods)
+        var img_category = itemView.findViewById<ImageView>(R.id.item_category)
         var price_foods = itemView.findViewById<TextView>(R.id.price_foods)
         var rank_foods = itemView.findViewById<RatingBar>(R.id.edit_ranking)
         var contents_foods = itemView.findViewById<TextView>(R.id.contents_foods)
 
 
         //View와 데이터를 연결시키는 함수
-        @RequiresApi(Build.VERSION_CODES.O)
         fun onBind(data: ListData) {
             //Glide 라이브러리를 통해 외부 링크를 ImageView에 넣을 수 있다.
             Glide.with(itemView).load(data.img_foods?.toUri()).into(img_foods)
-
             name_stores.text = data.name_stores
             name_foods.text = data.name_foods
+
+            //val bitmap = BitmapFactory.decodeByteArray(data.img_category,0,
+            //    data.img_category?.count()!!
+            //)
+            //bitmap as BitmapDrawable
+            //img_category.setImageDrawable(bitmap)
+
+            //val bitmap = BitmapFactory.decodeByteArray(data.img_category,0,length)
+            //val BM = data.img_category as Bitmap
+            //val BD = BM as BitmapDrawable
+            //val draw = BD as Drawable
+            //img_category.setImageDrawable(draw)
+            //val imageBytes = Base64.decode(data.img_category, 0)
+            //val os = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            //val bm = BitmapDrawable(os)
+
+            //img_category.setBackgroundDrawable(bm)
+            //Glide.with(itemView).load(bm).into(img_category)
+            //img_category.setBackgroundDrawable(null)
+            //img_category.setImageBitmap(data.img_category)
+            //Glide.with(itemView).load(data.img_category).into(img_category)
+            //Glide.with(itemView).load(BitmapDrawable(data.img_category)).into(img_category)
+            //img_category.setImageBitmap(data.img_category)
+            //img_category.setImageDrawable(BitmapDrawable(data.img_category))
+
+            //Glide.with(itemView).load(data.img_category).into(img_category.drawable)
             price_foods.text = data.price_foods
             rank_foods.rating = data.rank_foods
             contents_foods.text = data.contents_foods
@@ -90,3 +114,7 @@ class MainListAdapter(
     }
 
 }
+
+
+
+

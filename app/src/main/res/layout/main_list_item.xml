@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_view_background">
+    android:background="@drawable/item_view_background"
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,8 +19,8 @@
             android:layout_width="152dp"
             android:layout_height="match_parent"
             android:layout_weight="0"
-            tools:srcCompat="@tools:sample/avatars"
-            android:background="@drawable/item_view"/>
+            android:background="@drawable/item_view"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
             android:layout_width="257dp"
@@ -84,10 +84,10 @@
                     android:layout_weight="0" />
 
                 <ImageView
-                    android:id="@+id/categorly"
+                    android:id="@+id/item_category"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:srcCompat="@drawable/ic_launcher_background" />
+                    app:srcCompat="@drawable/cat6"/>
 
             </LinearLayout>
 
@@ -100,9 +100,9 @@
                 android:layout_marginTop="2dp"
                 android:isIndicator="true"
                 android:numStars="5"
-                android:stepSize="0.5"
+                android:progressTint="@android:color/holo_orange_dark"
                 android:rating="3"
-                android:progressTint="@android:color/holo_orange_dark"/>
+                android:stepSize="0.5" />
 
             <TextView
                 android:id="@+id/contents_foods"
